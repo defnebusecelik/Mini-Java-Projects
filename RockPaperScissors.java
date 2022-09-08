@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class RockPaperScissors{
+public class RockPaperScissors{
     public static void main(String[] args) {
         String ready, choice;
         
@@ -15,6 +15,8 @@ class RockPaperScissors{
             choice=input.nextLine();
             String computer=computerChoice();
             System.out.println("You chose: \t"+choice+"\nComputer chose: \t"+computer);
+            String result=result(choice,computer);
+            System.out.println(result);
         }
         else{
             System.out.println("Ok,some another time pls");
@@ -30,5 +32,32 @@ class RockPaperScissors{
             case 2: return "scissors";
             default:return "";
         }
+    }
+    
+    public static String result(String you, String computer){
+        String result="";
+        if(you.equals("rock") && computer.equals("scissors")){
+            result="You WIN!";
+        }
+        else if(you.equals("rock") && computer.equals("paper")){
+            result="You LOSE!";
+        }
+        else if(you.equals("paper") && computer.equals("rock")){
+            result="You WIN!";
+        }
+        else if(you.equals("paper") && computer.equals("scissors")){
+            result="You LOSE!";
+        }
+        else if(you.equals("scissors") && computer.equals("rock")){
+            result="You LOSE!";
+        }
+        else if(you.equals("scissors") && computer.equals("paper")){
+            result="You WIN!";
+        }
+        else{
+            result="It's a tie!";
+        }
+        
+        return result;
     }
 }

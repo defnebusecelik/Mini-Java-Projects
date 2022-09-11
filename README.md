@@ -3,3 +3,5 @@
 -A basic dealership project for my bootcamp
 
 -A basic rock,paper,scissors game project
+
+-A basic Javapedia project

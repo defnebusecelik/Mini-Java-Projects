@@ -1,13 +1,12 @@
 import java.util.Scanner;
 public class Javapedia {
     public static void main(String[] args) {
-        int people;
         
         Scanner input= new Scanner(System.in);
         
         System.out.println("-------------JAVAPEDIA--------------");
         System.out.println("How many historical figures will you register? ");
-        people=input.nextInt();
+        int people=input.nextInt();
         String database[][]= new String[people][3];
         
         input.nextLine();
@@ -24,6 +23,16 @@ public class Javapedia {
         
         System.out.println("These are the values you stored: ");
         print2D(database);
+        
+        System.out.println("Who do you want information on?: ");
+        String name=input.nextLine();
+        for(int i=0 ; i<database.length; i++){
+            if(database[i][0].equals(name)){
+                System.out.println("\tName: "+database[i][0]);
+                System.out.println("\tDate of birth: "+database[i][1]);
+                System.out.println("\tOccupation: "+database[i][2]);
+            }
+        }
     }
     
     public static void print2D(String[][] array){

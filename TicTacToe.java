@@ -1,8 +1,7 @@
 import java.util.Scanner;
 public class TicTacToe {
+    
     public static void main(String[] args) {
-        
-        Scanner scan=new Scanner(System.in);
         
         System.out.println("\nLet's play tic tac toe!");
         char[][] board= {
@@ -11,6 +10,18 @@ public class TicTacToe {
             {'_','_','_'}
         };
         printBoard(board);
+        for(int i=0; i<9; i++){
+            if(i%2==0){
+                System.out.println("Turn: X");
+                int[] spot=askUser(board);
+                board[spot[0]][spot[1]]='X';
+            }else{
+                System.out.println("Turn: O");
+                int[] spot=askUser(board);
+                board[spot[0]][spot[1]]='O';
+            }
+            printBoard(board);
+        }
     }
     
     public static void printBoard(char[][] board){
@@ -22,5 +33,18 @@ public class TicTacToe {
             }
             System.out.print("\n\n");
         }
+    }
+    
+    public static int[] askUser(char[][] board){
+        Scanner scan=new Scanner(System.in);
+        System.out.print(" *Pick a row and column number: ");
+        int row=scan.nextInt();
+        int element=scan.nextInt();
+        while(board[row][element]=='X' || board[row][element]=='O'){
+            System.out.println("Spot taken, pls try again!: ");
+            row=scan.nextInt();
+            element=scan.nextInt();
+        }
+        return new int[] {row,element};  
     }
 }

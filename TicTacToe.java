@@ -21,6 +21,14 @@ public class TicTacToe {
                 board[spot[0]][spot[1]]='O';
             }
             printBoard(board);
+            int count=checkWin(board);
+            if(count==3){
+                System.out.println("X wins!");
+                break;
+            }else if(count==-3){
+                System.out.println("O wins!");
+                break;
+                }
         }
     }
     
@@ -47,4 +55,23 @@ public class TicTacToe {
         }
         return new int[] {row,element};  
     }
-}
+    
+    public static int checkWin(char[][] board){
+        int count=0;
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board.length; j++){
+                if(board[i][j]=='X'){
+                    count++;
+                }else if(board[i][j]=='O'){
+                    count--;
+                }
+            }
+            if(count==3 || count==-3){
+                return count;
+            }else{
+                count=0;
+            }
+        }
+        return count;
+    }
+    }

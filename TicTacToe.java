@@ -28,6 +28,8 @@ public class TicTacToe {
             }else if(count==-3){
                 System.out.println("O wins!");
                 break;
+                }else if(i==8){
+                    System.out.println("It's a tie!");
                 }
         }
     }
@@ -70,6 +72,14 @@ public class TicTacToe {
                 return count;
             }else{
                 count=0;
+            }
+            for(int j=0; j<3; j++){
+                int rowIndex=2-j;
+                if (board[rowIndex][j]=='X'){
+                    count++;
+                }else if(board[rowIndex][j]=='O'){
+                    count--;
+                }
             }
         }
         return count;

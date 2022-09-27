@@ -8,4 +8,4 @@
 
 -A basic tictactoe game project
 
--university management system
+-University management system diagram
